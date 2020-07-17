@@ -1,0 +1,50 @@
+// 混合 把el-row
+// mixin混合融入代码
+// @at-root:在引入混合时，只会引入@at-root的代码，不会引入所有的minxinx代码
+// @mixin ceshi {
+//   $B:'el-row';
+//   @at-root{
+//     .#{$B}{
+//       &:after{
+//       }
+//     }
+//   }
+// }
+// 混合 minxin .el-row BEM-》（block）
+@import "./mixins/mixins.scss";
+@import "./mixins/utils.scss";
+
+// scss数组（a,b,c）
+@include b(row) {
+  @include utils-clearfix;
+  @include m(flex) {
+    display: flex;
+    &::after,
+    &::before {
+      display: none;
+    }
+    @include when(justify-end) {
+      justify-content: flex-end;
+    }
+
+    @include when(justify-center) {
+      justify-content: center;
+    }
+
+    @include when(justify-space-between) {
+      justify-content: space-between;
+    }
+
+    @include when(justify-space-around) {
+      justify-content: space-around;
+    }
+
+    @include when(align-middle) {
+      align-items: center;
+    }
+
+    @include when(align-bottom) {
+      align-items: flex-end;
+    }
+  }
+}

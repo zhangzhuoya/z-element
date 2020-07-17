@@ -1,0 +1,45 @@
+@import "./config.scss";
+@import "../common/var.scss";
+@mixin b($block) {
+  //接收参数
+  $B: $namespace + "-" + $block;
+  @at-root {
+    .#{$B} {
+      @content;
+    }
+  }
+}
+@mixin m($modifier) {
+  $selector: &;
+  $currentSelector: "";
+  @each $unit in $modifier {
+    $currentSelector: $currentSelector +
+      $selector +
+      $modifier-separator +
+      $unit +
+      ",";
+  }
+  @at-root {
+    #{$currentSelector} {
+      @content;
+    }
+  }
+}
+@mixin when($state) {
+  @at-root {
+    &.#{$state-prefix + $state} {
+      @content;
+    }
+  }
+}
+//  断点
+// inspect函数 maps不能转换为纯css，作为变量的值或者参数传递给css函数导致错误，会使用inspect
+@mixin res($key, $map: $--breakpoints) {
+  @if map-has-key($map, $key) {
+    @media only screen and #{inspect(map-get($map,$key))} {
+      @content;
+    }
+  } @else {
+    @warn "undeinded points:`#{map}`";
+  }
+}
