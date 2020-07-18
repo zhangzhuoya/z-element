@@ -23,8 +23,8 @@
         <div class="grid-content bg-purple-light"></div>
       </el-col>
     </el-row>
-    <h1>分栏间隔</h1>
-    <el-row :gutter="20">
+    <h1>分栏间隔1</h1>
+    <el-row :gutter="70">
       <el-col :span="16">
         <div class="grid-content bg-purple"></div>
       </el-col>
@@ -45,7 +45,7 @@
       <el-col :span="4">
         <div class="grid-content bg-purple"></div>
       </el-col>
-    </el-row>
+   </el-row>
     <el-row :gutter="20">
       <el-col :span="4">
         <div class="grid-content bg-purple"></div>
@@ -69,7 +69,7 @@
         <div class="grid-content bg-purple"></div>
       </el-col>
     </el-row>
-    <el-row type="flex" class="row-bg" justify="end">
+    <el-row type="flex" class="row-bg" justify="center">
       <el-col :span="6">
         <div class="grid-content bg-purple"></div>
       </el-col>
@@ -80,7 +80,7 @@
         <div class="grid-content bg-purple"></div>
       </el-col>
     </el-row>
-    <el-row type="flex" class="row-bg" justify="space-between">
+    <el-row type="flex" class="row-bg" justify="center">
       <el-col :span="6">
         <div class="grid-content bg-purple"></div>
       </el-col>
@@ -91,7 +91,7 @@
         <div class="grid-content bg-purple"></div>
       </el-col>
     </el-row>
-    <el-row type="flex" class="row-bg" justify="space-around">
+    <el-row type="flex" class="row-bg" justify="space-around" align="top">
       <el-col :span="6">
         <div class="grid-content bg-purple"></div>
       </el-col>

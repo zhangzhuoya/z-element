@@ -13,20 +13,23 @@ export default {
       type: Number,
       default: 0,
     },
+    type: String,
     justify: {
-      type: String,
       default: 'start',
+      validator: (val) => ['start', 'end', 'center', 'space-between', 'space-around'].includes(val),
     },
-    algin: {
+    aligin: {
       type: String,
-      default: 'middle',
+      default: 'top',
+      validator: (val) => ['top', 'middle', 'bottom'].includes(val),
     },
   },
   computed: {
     style() {
       const styleList = {};
       if (this.gutter) {
-        styleList.marginLeft = `-${this.gutter / 2}px`;
+        console.log(this.gutter);
+        styleList.marginLeft = `${-this.gutter / 2}px`;
         styleList.marginRight = styleList.marginLeft;
       }
       return styleList;
@@ -40,7 +43,7 @@ export default {
           'el-row',
           { 'el-row--flex': this.type === 'flex' },
           this.justify !== 'start' && `is-justify-${this.justify}`,
-          this.align !== 'top' && `is-align-${this.align}`,
+          `is-align-${this.align}`,
         ],
         style: this.style,
       },
