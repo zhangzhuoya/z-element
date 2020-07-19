@@ -1,0 +1,10 @@
+@import "./mixins/mixins.scss";
+// 设置container为flex布局
+@include b(container){
+    display: flex;
+    flex-direction: row;//水平排列
+    @include when(vertical){
+        flex-direction: column;//垂直排列
+
+    }
+}

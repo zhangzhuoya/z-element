@@ -25,7 +25,7 @@ describe('row.vue', () => {
     expect(rowEle.classList).toContain('is-justify-end');
   });
   it('align', () => {
-    wrapper.setProps({ align: 'bottom' }); 
+    wrapper.setProps({ align: 'bottom' });
     expect(rowEle.classList).toContain('is-align-bottom');
   });
 });

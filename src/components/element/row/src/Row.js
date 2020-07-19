@@ -18,8 +18,7 @@ export default {
       default: 'start',
       validator: (val) => ['start', 'end', 'center', 'space-between', 'space-around'].includes(val),
     },
-    aligin: {
-      type: String,
+    align: {
       default: 'top',
       validator: (val) => ['top', 'middle', 'bottom'].includes(val),
     },
@@ -43,7 +42,7 @@ export default {
           'el-row',
           { 'el-row--flex': this.type === 'flex' },
           this.justify !== 'start' && `is-justify-${this.justify}`,
-          `is-align-${this.align}`,
+          this.align !== 'top' && `is-align-${this.align}`,
         ],
         style: this.style,
       },
